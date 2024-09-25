@@ -1,0 +1,17 @@
+.instagram-icon {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #fcdbff; /* Fundo branco para destacar o ícone */
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  z-index: 1000; /* Para garantir que ele fique acima de outros elementos */
+  color: #e4405f; /* Cor do ícone do Instagram */
+  font-size: 24px; /* Tamanho do ícone */
+  transition: transform 0.3s ease; /* Animação suave no hover */
+
+  &:hover {
+    transform: scale(1.1); /* Aumenta um pouco o ícone ao passar o mouse */
+  }
+}
