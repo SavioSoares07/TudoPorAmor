@@ -32,7 +32,7 @@ header {
     }
   }
 
-  ul {
+  ul.menu {
     display: flex;
     gap: 20px;
 
@@ -60,6 +60,25 @@ header {
         &:hover::after {
           transform: scaleX(1);
         }
+      }
+    }
+  }
+
+  ul.register {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    a {
+      color: #fff;
+    }
+    li:last-child {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #fff;
+      background-color: #fff;
+
+      a {
+        color: $primary-color;
       }
     }
   }
