@@ -1,9 +1,4 @@
-section#outdoor {
-  img {
-    width: 100%;
-    height: 25%;
-  }
-}
+//*Global Settings
 h1 {
   padding: 0;
   margin: 0;
@@ -11,6 +6,15 @@ h1 {
   font-size: 1.5rem;
   text-transform: uppercase;
 }
+
+//?Section Outdoor
+section#outdoor {
+  img {
+    width: 100%;
+    height: 25%;
+  }
+}
+//? Main Cards pets
 main {
   text-align: center;
   h1 {
@@ -53,6 +57,7 @@ a.btn-moreInfo {
   padding: 0;
 }
 
+//? Section Want to help us
 section#donations {
   display: flex;
   flex-direction: column;
@@ -86,84 +91,13 @@ section#donations {
         margin-left: 40px;
         margin-top: 30px;
         list-style-type: disc;
+        display: block;
+      }
+      a {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
       }
     }
   }
-}
-
-#robbu-whatsapp-button {
-  display: flex;
-  position: fixed;
-  bottom: 25px;
-  border-radius: 50%;
-  width: 64px;
-  height: 64px;
-  transition: 0.4s;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-}
-#robbu-whatsapp-button > .rwb-tooltip {
-  position: absolute;
-  bottom: 100%;
-  margin-bottom: 20px;
-  border-radius: 4px;
-  padding: 15px;
-  color: #2d2d2d;
-  font-size: 16px;
-  white-space: nowrap;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transition: 0.4s;
-  pointer-events: none;
-}
-#robbu-whatsapp-button > .rwb-tooltip:after {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 85%;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 7px 0 7px;
-  border-color: #fff transparent transparent transparent;
-  transition: 0.4s;
-}
-#robbu-whatsapp-button.left {
-  left: 25px;
-}
-#robbu-whatsapp-button.left > .rwb-tooltip {
-  left: 0;
-  transform: translateX(-10%);
-}
-#robbu-whatsapp-button.left > .rwb-tooltip:after {
-  left: 23px;
-}
-#robbu-whatsapp-button:not(.left) {
-  right: 25px;
-}
-#robbu-whatsapp-button:not(.left) > .rwb-tooltip {
-  right: 0;
-  transform: translateX(10%);
-}
-#robbu-whatsapp-button:not(.left) > .rwb-tooltip:after {
-  right: 23px;
-}
-#robbu-whatsapp-button > img {
-  display: block;
-  width: 34px;
-  height: 34px;
-}
-#robbu-whatsapp-button:hover {
-  padding: 10px;
-  transform: rotate(10);
-  background-color: #fff;
-}
-#robbu-whatsapp-button:hover > .rwb-tooltip {
-  opacity: 1;
-  transform: translateX(0);
-}
-#robbu-whatsapp-button:hover > .rwb-tooltip:after {
-  top: 100%;
-  transition-delay: 0.4s;
 }
