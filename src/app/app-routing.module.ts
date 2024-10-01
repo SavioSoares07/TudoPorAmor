@@ -1,10 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-//Routes
+// Importação dos componentes
 import { HomeComponent } from './Pages/home/home.component';
 import { DetailsComponent } from './Pages/details/details.component';
-import path from 'path';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
