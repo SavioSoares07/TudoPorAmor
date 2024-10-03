@@ -1,0 +1,23 @@
+section.registerPet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+  div#container-form {
+    p {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  div.container-radio {
+    display: flex;
+    justify-content: space-around;
+    div.item-Radio {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

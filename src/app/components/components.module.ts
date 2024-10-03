@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -15,6 +16,7 @@ import { HeaderLiteComponent } from './header-lite/header-lite.component';
     IconInstagramComponent,
     HeaderLiteComponent,
   ],
+  imports: [RouterModule, FullCalendarModule], // "imports" no lugar de "import"
   exports: [
     HeaderComponent,
     HeaderLiteComponent,
