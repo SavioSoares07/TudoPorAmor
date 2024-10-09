@@ -27,6 +27,7 @@ main {
     flex-wrap: wrap;
     margin-top: 20px;
     gap: 40px;
+
     mat-card.card {
       width: 20%;
       margin-top: 20px;
@@ -78,11 +79,6 @@ section#donations {
   div#container-donation-dog {
     display: flex;
 
-    img {
-      width: 360px;
-      height: 360px;
-      border-radius: 5px;
-    }
     ul {
       span {
         font-weight: bold;
@@ -96,7 +92,7 @@ section#donations {
       a {
         display: block;
         margin-top: 20px;
-        text-align: center;
+        margin-left: 40px;
       }
     }
   }

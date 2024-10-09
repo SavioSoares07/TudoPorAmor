@@ -1,0 +1,65 @@
+<app-header-lite></app-header-lite>
+<section class="registerPet">
+  <h1>Cadastrar pet</h1>
+  <div id="container-form">
+    <!--? Container Input-->
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do Pet</mat-label>
+        <input
+          matInput
+          placeholder="Ex. Nino"
+          [(ngModel)]="petName"
+          name="petName"
+          required
+        />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Idade do Pet</mat-label>
+        <input
+          type="number"
+          matInput
+          placeholder="Ex. 1"
+          [(ngModel)]="petAge"
+          name="petAge"
+          required
+        />
+      </mat-form-field>
+    </p>
+    <!--Finish Inputs-->
+    <!--? Container Radios-->
+    <div class="container-radio">
+      <div class="item-Radio">
+        <p-radioButton
+          name="petType"
+          value="cat"
+          inputId="catRadio"
+          [(ngModel)]="petType"
+        />
+        <label for="catRadio" class="ml-2"> Gato </label>
+      </div>
+      <div class="item-Radio">
+        <p-radioButton
+          name="petType"
+          value="dog"
+          inputId="dogRadio"
+          [(ngModel)]="petType"
+        />
+        <label for="dogRadio" class="ml-2"> Cachorro </label>
+      </div>
+    </div>
+    <!--Finish Radio-->
+    <p-fileUpload
+      mode="basic"
+      chooseLabel="Escolher"
+      chooseIcon="pi pi-upload"
+      name="demo[]"
+      url="https://www.primefaces.org/cdn/api/upload.php"
+      accept="image/*"
+      maxFileSize="1000000"
+      (onUpload)="onUpload($event)"
+    ></p-fileUpload>
+  </div>
+</section>

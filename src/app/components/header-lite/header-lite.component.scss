@@ -1,0 +1,27 @@
+@import "../../../styles.scss";
+
+header {
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 20px;
+
+  h1 {
+    justify-self: end;
+    a {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+  span {
+    a {
+      color: #fff;
+    }
+    justify-self: end;
+  }
+}

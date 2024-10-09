@@ -1,0 +1,35 @@
+@import "../../../styles.scss";
+
+header {
+  background-color: $primary-color;
+  h1 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.3rem;
+    cursor: default;
+    padding: 20px;
+  }
+}
+main {
+  text-align: center;
+  display: block;
+  min-width: 720px;
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  button {
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+  a {
+    padding: 20px;
+  }
+}
