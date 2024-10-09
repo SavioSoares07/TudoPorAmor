@@ -1,92 +1,34 @@
-import { Component } from '@angular/core';
-
-//? Type Calendar
-import { CalendarOptions } from '@fullcalendar/core/index.js';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { CalendarOptions } from '@fullcalendar/core';
 import rrulePlugin from '@fullcalendar/rrule';
-import dayGridPlugin from '@fullcalendar/daygrid'; // Importação do plugin dayGrid
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  styleUrls: ['./home.component.scss'], // Corrigi de styleUrl para styleUrls
 })
 export class HomeComponent {
-  calendarOptions: CalendarOptions = {
-    plugins: [rrulePlugin, dayGridPlugin],
-    initialView: 'dayGridMonth',
-    events: [
-      {
-        title: 'Data de vacinação',
-        rrule: {
-          freq: 'yearly',
-          dtstart: '2024-11-01T00:00:00',
-        },
-      },
-      {
-        title: 'Data de vacinação',
-        rrule: {
-          freq: 'yearly',
-          dtstart: '2024-11-02T00:00:00',
-        },
-      },
-      {
-        title: 'Data de vacinação',
-        rrule: {
-          freq: 'yearly',
-          dtstart: '2024-11-03T00:00:00',
-        },
-      },
-      {
-        title: 'Data de vacinação',
-        rrule: {
-          freq: 'yearly',
-          dtstart: '2024-11-04T00:00:00',
-        },
-      },
-      {
-        title: 'Data de vacinação',
-        rrule: {
-          freq: 'yearly',
-          dtstart: '2024-11-05T00:00:00',
-        },
-      },
-      {
-        title: 'Data de vacinação',
-        rrule: {
-          freq: 'yearly',
-          dtstart: '2024-11-06T00:00:00',
-        },
-      },
-      {
-        title: 'Data de vacinação',
-        rrule: {
-          freq: 'yearly',
-          dtstart: '2024-11-07T00:00:00',
-        },
-      },
-      {
-        title: 'Data de vacinação',
-        rrule: {
-          freq: 'yearly',
-          dtstart: '2024-11-08T00:00:00',
-        },
-      },
-      {
-        title: 'Data de vacinação',
-        rrule: {
-          freq: 'yearly',
-          dtstart: '2024-11-09T00:00:00',
-        },
-      },
-      {
-        title: 'Data de vacinação',
-        rrule: {
-          freq: 'yearly',
-          dtstart: '2024-11-10T00:00:00',
-        },
-      },
-    ],
-    eventDisplay: 'block',
-    eventColor: '#f00',
-  };
+  calendarOptions: CalendarOptions | undefined;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.calendarOptions = {
+        plugins: [rrulePlugin, dayGridPlugin],
+        initialView: 'dayGridMonth', // Certifique-se de que esta visualização está disponível
+        events: [
+          {
+            title: 'Data de vacinação',
+            rrule: {
+              freq: 'yearly',
+              dtstart: '2024-11-01T00:00:00',
+            },
+          },
+        ],
+        eventDisplay: 'block',
+        eventColor: '#f00',
+      };
+    }
+  }
 }
