@@ -60,6 +60,9 @@ a.btn-moreInfo {
 
 //? Section Want to help us
 section#donations {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,12 +76,15 @@ section#donations {
     text-align: center;
     max-width: 720px;
     text-align: justify;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   div#container-donation-dog {
     display: flex;
-
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
     ul {
       span {
         font-weight: bold;
@@ -94,6 +100,10 @@ section#donations {
         margin-top: 20px;
         margin-left: 40px;
       }
+    }
+    img {
+      width: 30%;
+      height: 30%;
     }
   }
 }

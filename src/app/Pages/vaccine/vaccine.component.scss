@@ -2,6 +2,9 @@ section.registerPet {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
+  text-align: center;
+
   h1 {
     font-size: 1.4rem;
     text-transform: uppercase;
@@ -18,6 +21,7 @@ section.registerPet {
     div.item-Radio {
       display: flex;
       align-items: center;
+      margin-bottom: 20px;
     }
   }
 }
