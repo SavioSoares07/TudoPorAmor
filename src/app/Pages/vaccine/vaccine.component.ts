@@ -21,4 +21,16 @@ export class VaccineComponent {
       detail: 'Arquivo carregado com sucesso',
     });
   }
+
+  ELEMENT_DATA: PeriodicElement[] = [
+    { namePet: 'Nina', vaccine:"Vacina x", age : 1, applied: 'True' },
+  ];
+  displayedColumns: string[] = [ 'namePet', 'vaccine', 'age', 'applied'];
+  dataSource = this.ELEMENT_DATA;
+}
+interface PeriodicElement {
+  namePet: string;
+  age : number;
+  vaccine: string;
+  applied: string;
 }
