@@ -29,6 +29,7 @@
     "@fullcalendar/daygrid": "^6.1.15",
     "@fullcalendar/rrule": "^6.1.15",
     "express": "^4.18.2",
+    "ngx-pagination": "^6.0.3",
     "ong": "file:",
     "primeng": "^17.18.11",
     "rxjs": "~7.8.0",

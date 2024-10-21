@@ -1,36 +1,41 @@
-import { Component } from '@angular/core';
-import { MessageService } from 'primeng/api';
-import { FileUploadEvent } from 'primeng/fileupload'; // Importando o FileUploadEvent
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-vaccine',
   templateUrl: './vaccine.component.html',
   styleUrls: ['./vaccine.component.scss'],
-  providers: [MessageService],
 })
-export class VaccineComponent {
-  constructor(private messageService: MessageService) {}
-  petName: string = '';
-  petAge: number | null = null;
-  petType: string = '';
-  // Usando FileUploadEvent ao invés de uma interface personalizada
-  onUpload(event: FileUploadEvent) {
-    this.messageService.add({
-      severity: 'info',
-      summary: 'Sucesso',
-      detail: 'Arquivo carregado com sucesso',
+export class VaccineComponent implements OnInit {
+  activeIndex: number = 0;
+  cities = [
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' },
+  ];
+
+  formGroup!: FormGroup;
+  petForm!: FormGroup;
+
+  ngOnInit() {
+    this.formGroup = new FormGroup({
+      selectedCity: new FormControl(null),
+    });
+
+    this.petForm = new FormGroup({
+      petName: new FormControl('', Validators.required),
+      petCategory: new FormControl('', Validators.required),
     });
   }
 
-  ELEMENT_DATA: PeriodicElement[] = [
-    { namePet: 'Nina', vaccine:"Vacina x", age : 1, applied: 'True' },
-  ];
-  displayedColumns: string[] = [ 'namePet', 'vaccine', 'age', 'applied'];
-  dataSource = this.ELEMENT_DATA;
-}
-interface PeriodicElement {
-  namePet: string;
-  age : number;
-  vaccine: string;
-  applied: string;
+  registerPet() {
+    if (this.petForm.valid) {
+      // Lógica para registrar o pet
+      console.log('Pet cadastrado com sucesso:', this.petForm.value);
+    } else {
+      console.log('Por favor, preencha todos os campos corretamente.');
+    }
+  }
 }

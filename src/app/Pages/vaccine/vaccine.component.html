@@ -1,89 +1,57 @@
 <app-header-lite></app-header-lite>
-<section class="registerPet">
-  <h1>Cadastrar pet</h1>
-  <div id="container-form">
-    <!--? Container Input-->
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Nome do Pet</mat-label>
-        <input
-          matInput
-          placeholder="Ex. Nino"
-          [(ngModel)]="petName"
-          name="petName"
-          required
-        />
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Idade do Pet</mat-label>
-        <input
-          type="number"
-          matInput
-          placeholder="Ex. 1"
-          [(ngModel)]="petAge"
-          name="petAge"
-          required
-        />
-      </mat-form-field>
-    </p>
-    <!--Finish Inputs-->
-    <!--? Container Radios-->
-    <div class="container-radio">
-      <div class="item-Radio">
-        <p-radioButton
-          name="petType"
-          value="cat"
-          inputId="catRadio"
-          [(ngModel)]="petType"
-        />
-        <label for="catRadio" class="ml-2"> Gato </label>
-      </div>
-      <div class="item-Radio">
-        <p-radioButton
-          name="petType"
-          value="dog"
-          inputId="dogRadio"
-          [(ngModel)]="petType"
-        />
-        <label for="dogRadio" class="ml-2"> Cachorro </label>
-      </div>
+
+<div>
+  <section id="form-pet">
+    <h1>Cadastrar Pet</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Nome do Pet</mat-label>
+      <input placeholder="Ex. Nino" matInput formControlName="petName" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Categoria</mat-label>
+      <mat-select formControlName="petCategory">
+        <mat-option value="cat">Gato</mat-option>
+        <mat-option value="dog">Cachorro</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="example-button-container">
+      <button mat-fab extended (click)="registerPet()">Cadastrar</button>
     </div>
-    <!--Finish Radio-->
+  </section>
 
-    <mat-divider></mat-divider>
+  <h1>Carteira de vacinação</h1>
 
-    <h1>Vacinação</h1>
-
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">  
-      <!-- Name Column -->
-      <ng-container matColumnDef="namePet">
-        <th mat-header-cell *matHeaderCellDef>Nome Pet</th>
-        <td mat-cell *matCellDef="let element">{{ element.namePet }}</td>
-      </ng-container>
-
-      <!-- Weight Column -->
-      <ng-container matColumnDef="vaccine">
-        <th mat-header-cell *matHeaderCellDef>Vacina</th>
-        <td mat-cell *matCellDef="let element">{{ element.vaccine }}</td>
-      </ng-container>
-      
-
-      <!-- Age Column -->
-      <ng-container matColumnDef="age">
-        <th mat-header-cell *matHeaderCellDef>Idade</th>
-        <td mat-cell *matCellDef="let element">{{ element.age }}</td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="applied">
-        <th mat-header-cell *matHeaderCellDef>Aplicada</th>
-        <td mat-cell *matCellDef="let element">{{ element.applied }}</td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-  </div>
-</section>
+  <section id="vaccination-card">
+    <div class="card">
+      <p-tabView [(activeIndex)]="activeIndex">
+        <p-tabPanel header="Capa" id="header1">
+          <div class="container">
+            <h1>
+              Sua carteira de vacinação na tela do seu computador ou celular
+            </h1>
+            <div></div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Vacinas" id="header2">
+          <form [formGroup]="formGroup">
+            <p-dropdown
+              formControlName="selectedCity"
+              [options]="cities"
+              optionLabel="name"
+              placeholder="Select a City"
+            ></p-dropdown>
+          </form>
+        </p-tabPanel>
+        <p-tabPanel header="Informações Adicionais" id="header3">
+          <p>
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui
+            blanditiis praesentium voluptatum deleniti atque corrupti quos
+            dolores et quas molestias excepturi sint occaecati cupiditate non
+            provident, similique sunt in culpa qui officia deserunt mollitia
+            animi, id est laborum et dolorum fuga.
+          </p>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </section>
+</div>

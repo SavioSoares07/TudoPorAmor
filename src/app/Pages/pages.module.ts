@@ -6,13 +6,34 @@ import { DetailsComponent } from './details/details.component';
 import { RouterModule } from '@angular/router';
 import { VaccineComponent } from './vaccine/vaccine.component';
 import { PrimeNg } from '../primeng/primeng.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component'; // Importando FormsModule
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
-  declarations: [HomeComponent, DetailsComponent, VaccineComponent, RegisterComponent, LoginComponent],
-  imports: [AngularMaterial, Components, RouterModule, PrimeNg, FormsModule], // Adicionando FormsModule
-  exports: [HomeComponent, DetailsComponent, VaccineComponent],
+  declarations: [
+    HomeComponent,
+    DetailsComponent,
+    VaccineComponent,
+    RegisterComponent,
+    LoginComponent,
+  ],
+  imports: [
+    AngularMaterial,
+    Components,
+    RouterModule,
+    PrimeNg,
+    FormsModule,
+    NgxPaginationModule,
+    ReactiveFormsModule,
+  ], // Adicionando FormsModule
+  exports: [
+    HomeComponent,
+    DetailsComponent,
+    VaccineComponent,
+    NgxPaginationModule,
+    PrimeNg,
+    ReactiveFormsModule,
+  ],
 })
 export class PagesModule {}
