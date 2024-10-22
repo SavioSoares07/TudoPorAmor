@@ -1,89 +1,100 @@
 <app-header-lite></app-header-lite>
-<section class="registerPet">
-  <h1>Cadastrar pet</h1>
-  <div id="container-form">
-    <!--? Container Input-->
-    <p>
+
+<div>
+  <section id="form-pet">
+    <h1>Cadastrar Pet</h1>
+    <form [formGroup]="petForm">
       <mat-form-field appearance="outline">
         <mat-label>Nome do Pet</mat-label>
-        <input
-          matInput
-          placeholder="Ex. Nino"
-          [(ngModel)]="petName"
-          name="petName"
-          required
-        />
+        <input placeholder="Ex. Nino" matInput formControlName="petName" />
       </mat-form-field>
-    </p>
-    <p>
+      <br />
       <mat-form-field appearance="outline">
-        <mat-label>Idade do Pet</mat-label>
-        <input
-          type="number"
-          matInput
-          placeholder="Ex. 1"
-          [(ngModel)]="petAge"
-          name="petAge"
-          required
-        />
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="petCategory">
+          <mat-option value="cat">Gato</mat-option>
+          <mat-option value="dog">Cachorro</mat-option>
+        </mat-select>
       </mat-form-field>
-    </p>
-    <!--Finish Inputs-->
-    <!--? Container Radios-->
-    <div class="container-radio">
-      <div class="item-Radio">
-        <p-radioButton
-          name="petType"
-          value="cat"
-          inputId="catRadio"
-          [(ngModel)]="petType"
-        />
-        <label for="catRadio" class="ml-2"> Gato </label>
+
+      <div class="example-button-container">
+        <button mat-fab extended (click)="registerPet()">Cadastrar</button>
       </div>
-      <div class="item-Radio">
-        <p-radioButton
-          name="petType"
-          value="dog"
-          inputId="dogRadio"
-          [(ngModel)]="petType"
-        />
-        <label for="dogRadio" class="ml-2"> Cachorro </label>
-      </div>
+    </form>
+  </section>
+
+  <h1>Carteira de vacinação</h1>
+
+  <section id="vaccination-card">
+    <div class="card">
+      <p-tabView [(activeIndex)]="activeIndex">
+        <p-tabPanel header="Capa" id="header1">
+          <div class="container">
+            <h1>
+              Sua carteira de vacinação na tela do seu computador ou celular
+            </h1>
+            <div></div>
+          </div>
+        </p-tabPanel>
+
+        <p-tabPanel header="Vacinas" id="header2">
+          <form [formGroup]="formGroup">
+            <p-dropdown
+              formControlName="selectedPet"
+              [options]="pets"
+              optionLabel="name"
+              placeholder="Selecione seu pet"
+              (onChange)="onPetChange($event)"
+            >
+              <ng-template let-pet pTemplate="item">
+                <mat-icon>favorite</mat-icon>
+                {{ pet.name }}
+              </ng-template>
+            </p-dropdown>
+          </form>
+
+          <div id="containerVaccine">
+            <div id="headerVaccine">
+              <h1 *ngIf="selectedPet">Você selecionou: {{ selectedPet }}</h1>
+            </div>
+            <div *ngIf="selectedPet" id="contentVaccine">
+              <p-table
+                [value]="petList"
+                [tableStyle]="{ 'min-width': '50rem' }"
+              >
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Nome</th>
+                    <th>Vacina</th>
+                    <th>Aplicada</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-pet>
+                  <tr>
+                    <td>{{ pet.name }}</td>
+                    <td>{{ pet.vaccine }}</td>
+                    <td>{{ pet.applied }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+        </p-tabPanel>
+
+        <p-tabPanel header="Informações Adicionais" id="vaccine-pets">
+          <span>Vacinas</span>
+          <p-tabView>
+            <p-tabPanel header="Cachorro">
+              <img src="../../../assets/CronogramaDog.png" alt="" />
+            </p-tabPanel>
+            <p-tabPanel header="Gato">
+              <p>
+                <img src="../../../assets/CronogramaCat.png" alt="" />
+              </p>
+            </p-tabPanel>
+          </p-tabView>
+        </p-tabPanel>
+      </p-tabView>
     </div>
-    <!--Finish Radio-->
-
-    <mat-divider></mat-divider>
-
-    <h1>Vacinação</h1>
-
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">  
-      <!-- Name Column -->
-      <ng-container matColumnDef="namePet">
-        <th mat-header-cell *matHeaderCellDef>Nome Pet</th>
-        <td mat-cell *matCellDef="let element">{{ element.namePet }}</td>
-      </ng-container>
-
-      <!-- Weight Column -->
-      <ng-container matColumnDef="vaccine">
-        <th mat-header-cell *matHeaderCellDef>Vacina</th>
-        <td mat-cell *matCellDef="let element">{{ element.vaccine }}</td>
-      </ng-container>
-      
-
-      <!-- Age Column -->
-      <ng-container matColumnDef="age">
-        <th mat-header-cell *matHeaderCellDef>Idade</th>
-        <td mat-cell *matCellDef="let element">{{ element.age }}</td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="applied">
-        <th mat-header-cell *matHeaderCellDef>Aplicada</th>
-        <td mat-cell *matCellDef="let element">{{ element.applied }}</td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-  </div>
-</section>
+  </section>
+</div>

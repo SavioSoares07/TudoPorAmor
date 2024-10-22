@@ -1,31 +1,78 @@
-section.registerPet {
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: default;
+  text-align: center;
+  color: #4b5563;
+}
+
+section#form-pet {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100vw;
-  text-align: center;
+  gap: 25px;
+  margin-bottom: 40px;
 
-  h1 {
-    font-size: 1.4rem;
-    text-transform: uppercase;
-  }
-  div#container-form {
-    p {
-      display: flex;
-      flex-direction: row;
-    }
-  }
-  div.container-radio {
+  button {
     display: flex;
-    justify-content: space-around;
-    div.item-Radio {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+    align-items: center;
+    gap: 10px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 20px;
   }
 }
-.mat-mdc-table{
-  text-align: center;
+
+// * Carteira de vacinação
+section#vaccination-card {
+  h1 {
+    font-size: 1rem;
+  }
+
+  //* Carteiras
+  #header1 {
+    div.container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      div {
+        height: 500px;
+        width: 100%;
+        border-radius: 10px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url(../../../assets/CarteiraHome.png);
+        background-position: center;
+      }
+    }
+  }
+  #containerVaccine {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    #headerVaccine {
+      background: #ffffff;
+      border-radius: 5px;
+      color: #334155;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+      width: 60%;
+    }
+    #contentVaccine {
+      width: 60%;
+    }
+  }
+  #vaccine-pets {
+    span {
+      font-size: 1rem;
+    }
+  }
 }
