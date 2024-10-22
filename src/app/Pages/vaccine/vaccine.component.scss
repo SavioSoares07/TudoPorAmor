@@ -52,4 +52,22 @@ section#vaccination-card {
       }
     }
   }
+  #containerVaccine {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    #headerVaccine {
+      background: #ffffff;
+      border-radius: 5px;
+      color: #334155;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+      width: 60%;
+    }
+    #contentVaccine {
+      width: 60%;
+    }
+  }
 }

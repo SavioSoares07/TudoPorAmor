@@ -3,20 +3,24 @@
 <div>
   <section id="form-pet">
     <h1>Cadastrar Pet</h1>
-    <mat-form-field appearance="fill">
-      <mat-label>Nome do Pet</mat-label>
-      <input placeholder="Ex. Nino" matInput formControlName="petName" />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Categoria</mat-label>
-      <mat-select formControlName="petCategory">
-        <mat-option value="cat">Gato</mat-option>
-        <mat-option value="dog">Cachorro</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div class="example-button-container">
-      <button mat-fab extended (click)="registerPet()">Cadastrar</button>
-    </div>
+    <form [formGroup]="petForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Nome do Pet</mat-label>
+        <input placeholder="Ex. Nino" matInput formControlName="petName" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="petCategory">
+          <mat-option value="cat">Gato</mat-option>
+          <mat-option value="dog">Cachorro</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="example-button-container">
+        <button mat-fab extended (click)="registerPet()">Cadastrar</button>
+      </div>
+    </form>
   </section>
 
   <h1>Carteira de vacinação</h1>
@@ -32,16 +36,51 @@
             <div></div>
           </div>
         </p-tabPanel>
+
         <p-tabPanel header="Vacinas" id="header2">
           <form [formGroup]="formGroup">
             <p-dropdown
-              formControlName="selectedCity"
-              [options]="cities"
+              formControlName="selectedPet"
+              [options]="pets"
               optionLabel="name"
-              placeholder="Select a City"
-            ></p-dropdown>
+              placeholder="Selecione seu pet"
+              (onChange)="onPetChange($event)"
+            >
+              <ng-template let-pet pTemplate="item">
+                <mat-icon>favorite</mat-icon>
+                {{ pet.name }}
+              </ng-template>
+            </p-dropdown>
           </form>
+
+          <div id="containerVaccine">
+            <div id="headerVaccine">
+              <h1 *ngIf="selectedPet">Você selecionou: {{ selectedPet }}</h1>
+            </div>
+            <div *ngIf="selectedPet" id="contentVaccine">
+              <p-table
+                [value]="petList"
+                [tableStyle]="{ 'min-width': '50rem' }"
+              >
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Nome</th>
+                    <th>Vacina</th>
+                    <th>Aplicada</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-pet>
+                  <tr>
+                    <td>{{ pet.name }}</td>
+                    <td>{{ pet.vaccine }}</td>
+                    <td>{{ pet.applied }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
         </p-tabPanel>
+
         <p-tabPanel header="Informações Adicionais" id="header3">
           <p>
             At vero eos et accusamus et iusto odio dignissimos ducimus qui

@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component'; // Importando FormsModule
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -26,6 +27,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+    CommonModule,
   ], // Adicionando FormsModule
   exports: [
     HomeComponent,
@@ -34,6 +36,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgxPaginationModule,
     PrimeNg,
     ReactiveFormsModule,
+    CommonModule,
   ],
 })
 export class PagesModule {}
