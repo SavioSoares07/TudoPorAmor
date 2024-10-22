@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class VaccineComponent implements OnInit {
   petList = [
-    { name: 'teste', vaccine: 'dog', applied: true },
+    { name: 'Cat', vaccine: 'dog', applied: true },
     { name: 'teste', vaccine: 'dog', applied: true },
     { name: 'teste', vaccine: 'dog', applied: true },
   ];

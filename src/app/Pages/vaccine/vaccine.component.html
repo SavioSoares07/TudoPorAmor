@@ -4,7 +4,7 @@
   <section id="form-pet">
     <h1>Cadastrar Pet</h1>
     <form [formGroup]="petForm">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Nome do Pet</mat-label>
         <input placeholder="Ex. Nino" matInput formControlName="petName" />
       </mat-form-field>
@@ -81,14 +81,18 @@
           </div>
         </p-tabPanel>
 
-        <p-tabPanel header="Informações Adicionais" id="header3">
-          <p>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias excepturi sint occaecati cupiditate non
-            provident, similique sunt in culpa qui officia deserunt mollitia
-            animi, id est laborum et dolorum fuga.
-          </p>
+        <p-tabPanel header="Informações Adicionais" id="vaccine-pets">
+          <span>Vacinas</span>
+          <p-tabView>
+            <p-tabPanel header="Cachorro">
+              <img src="../../../assets/CronogramaDog.png" alt="" />
+            </p-tabPanel>
+            <p-tabPanel header="Gato">
+              <p>
+                <img src="../../../assets/CronogramaCat.png" alt="" />
+              </p>
+            </p-tabPanel>
+          </p-tabView>
         </p-tabPanel>
       </p-tabView>
     </div>
