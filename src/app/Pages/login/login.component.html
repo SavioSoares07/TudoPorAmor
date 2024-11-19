@@ -17,7 +17,8 @@
       <input required type="password" matInput placeholder="Ex. *******" />
     </mat-form-field>
   </p>
-  <button>Entrar</button>
+  <!-- Corrigido o evento (Click) para (click) -->
+  <button (click)="login()">Entrar</button>
   <br />
-  <a routerLink="/login">Não tem conta ? <span>Crie sua conta</span></a>
+  <a routerLink="/login">Não tem conta? <span>Crie sua conta</span></a>
 </main>

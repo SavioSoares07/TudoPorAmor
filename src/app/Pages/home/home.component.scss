@@ -6,7 +6,20 @@ h1 {
   font-size: 1.5rem;
   text-transform: uppercase;
 }
-
+mat-card-header{ 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  mat-card-title{
+    margin-bottom: 20px;
+  }
+  div{
+    display: flex;
+    gap: 80px;    
+  }
+}
 //?Section Outdoor
 section#outdoor {
   img {
@@ -20,6 +33,7 @@ main {
   h1 {
     border-bottom: 1px solid #ccc;
   }
+
   div#container-pets {
     display: flex;
     justify-content: space-around;

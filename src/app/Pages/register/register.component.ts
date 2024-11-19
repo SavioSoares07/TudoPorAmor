@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-
+  register(){
+    console.error("Error connecting to the database")
+  }
 }

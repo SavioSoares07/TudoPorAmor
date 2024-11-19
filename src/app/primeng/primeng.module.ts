@@ -5,6 +5,8 @@ import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+
 @NgModule({
   imports: [
     RadioButtonModule,
@@ -13,6 +15,7 @@ import { DropdownModule } from 'primeng/dropdown';
     TabViewModule,
     ButtonModule,
     DropdownModule,
+    ConfirmPopupModule
   ],
   exports: [
     RadioButtonModule,
@@ -21,6 +24,7 @@ import { DropdownModule } from 'primeng/dropdown';
     TabViewModule,
     ButtonModule,
     DropdownModule,
+    ConfirmPopupModule
   ],
 })
 export class PrimeNg {}
